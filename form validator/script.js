@@ -26,53 +26,51 @@ function isValidEmail(email) {
     return re.test(String(email).toLowerCase());
 }
 
-// Check required fields
-function checkRequired(inputArr) {
-    inputArr.forEach(function(input){        //forEach loops through the array
-        if(input.value.trim() == '') {         //trim to trim out whitespaces
-            console.log(input.id)
-            showError(input, '${getFieldName(input)}  is required');
-        }   else{
-            showSuccess(input);
-        }
-    });         
-}
+// // Check required fields
+// function checkRequired(inputArr) {
+//     inputArr.forEach(function(input){        //forEach loops through the array
+//         if(input.value.trim() == '') {         //trim to trim out whitespaces
+//             console.log(input.id)
+//             showError(input, '${getFieldName(input)}  is required');
+//         }   else{
+//             showSuccess(input);
+//         }
+//     });         
+// }
 
-// Event Listeners
+//Event Listeners
 form.addEventListener('submit', function(e) {
     e.preventDefault();     /*previne eventul 'submit' sa actioneze, in cazul nostru nu submite form-ul si nu sterge informatiile din field */
 
 
-    checkRequired([username, email, password, password2]);
+//     checkRequired([username, email, password, password2]);
 
 
-    // if(username.value == ''){       //conditie ce sa afiseze daca e gol field-ul
-    //     showError(username, 'Username is required');
-    // } else{
-    //     showSuccess(username);
-    // }
+    if(username.value == ''){       //conditie ce sa afiseze daca e gol field-ul
+        showError(username, 'Username is required');
+     } else{
+         showSuccess(username);
+     }
 
-n 
-    // if(email.value == ''){       
-    //     showError(email, 'Email is required');
-    //     }  
-    //     else if(!isValidEmail(email.value)){
-    //         showError(email, 'Email is not valid!');
-    //     } 
-    //     else{
-    //     showSuccess(email);
-    //     }
+     if(email.value == ''){       
+         showError(email, 'Email is required');
+         }  
+         else if(!isValidEmail(email.value)){
+             showError(email, 'Email is not valid!');
+         } 
+         else{
+         showSuccess(email);
+        }  
 
-    // if(password.value == ''){
-    //     showError(password, 'Password is required');
-    // } else{
-    //     showSuccess(password);
-    // }
+    if(password.value == ''){
+        showError(password, 'Password is required');
+    } else{
+        showSuccess(password);
+    }
 
-    // if(password2.value == ''){
-    //     showError(password2, 'Password is required');
-    // } else{
-    //     showSuccess(password2);
-    // }
-
-});
+     if(password2.value == ''){
+        showError(password2, 'Password is required');
+    } else{
+        showSuccess(password2);
+    }
+})
