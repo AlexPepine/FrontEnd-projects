@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Muli:&display=swap');
+
+/* if we add padding/border to an element IT DOES NOT CHANGE THE WIDTH */
+*{
+    box-sizing: border-box;
+}
+
+
+body{
+    font-family: 'Muli', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;/* ca sa mearga justify-content trebuie ca body sa aiba height*/
+    height: 100vh;   /* 100vh e dimensiunea maxima a browserului*/
+    overflow: hidden;/* sa nu apara scroll bars*/
+    margin: 0;
+}
+
+.container{
+    display: flex;
+    width: 90vw;
+}
+
+.panel{
+    background-size: auto 100%;  /*COVER pentru ecrane mai mari, "AUTO+100%" pentru ecrane normale*/
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer; /* cand faci hover pe poze iti apare cursorul*/
+    flex: 0.5;
+    margin: 10px;
+    position: relative;
+    transition: flex 0.7s ease-in;
+}
+
+.panel h3{
+    font-size: 25px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    margin: 0;
+    opacity: 0;
+}
+
+.panel.active{
+    flex: 5;
+}
+
+.panel.active h3{
+    opacity: 1;
+    transition: opacity 0.3s ease-in 0.4s;
+}
+
+@media(max-width: 480px){
+    .container{
+        width: 100vw;
+    }
+
+    .panel:nth-of-type(4),
+    .panel:nth-of-type(5){
+        display: none;
+    }
+}
